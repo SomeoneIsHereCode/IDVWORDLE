@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>IDV Wordle</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>IDV Wordle</h1>
+  <p id="scoreDisplay"></p>
+
+  <div class="mode-toggle-container">
+    <span id="dailyModeSign" class="daily-mode-sign" style="display:none;">You are currently in Daily Mode!</span>
+    <button id="dailyModeButton" type="button" class="daily-mode-btn">Daily Mode</button>
+  </div>
+
+  <form autocomplete="off">
+    <div class="autocomplete">
+      <input id="guessInput" type="text" placeholder="Type or select a character..." autocomplete="off" />
+      <div id="autocomplete-list" class="autocomplete-items"></div>
+    </div>
+  </form>
+
+  <div>
+    <button id="submitButton">Submit Guess</button>
+    <button id="retryButton">Retry</button>
+  </div>
+
+  <div id="message" aria-live="polite"></div>
+  <div id="fullBodyContainer">
+    <img id="fullBodyImage" src="" alt="" />
+  </div>
+
+  <table id="guessTable" aria-label="Guess history">
+    <thead>
+      <tr>
+        <th></th>
+        <th>Name</th>
+        <th>Role</th>
+        <th>Gender</th>
+        <th>Season</th>
+        <th>Difficulty</th>
+        <th>Skins (S+SS)</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+  <div id="notes">
+    <button type="button" class="collapsible">Toggle Notes</button>
+    <div class="content">
+      <ul>
+        <li>This game is based on Identity V, a 4v1 asymmetrical horror game by NetEase.</li>
+        <li>You have 5 attempts to guess the character.</li>
+        <li>Green = exact match, Yellow = close (within 5 seasons / 0.5 difficulty / 1 skin), Gray = wrong.</li>
+        <li>Skin count refers to their S or SS tier skins.</li>
+        <li>This version was last updated: <strong>August 6th, 2025 (Season 38 Essence 2)</strong>. Data may be outdated in future versions of the game.</li>
+        <li>Bonbon’s (Guard 26) gender is left as Male for simplicity, though the character is technically genderless.</li>
+        <li>All character images, names, and properties belong to NetEase and are used under fair use for fan purposes.</li>
+        <li>This project is not affiliated with NetEase. No copyright infringement intended. This is a fan-made project for funsies.</li>
+      </ul>
+    </div>
+  </div>
+
+<script src="idvwordle.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,344 @@
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: url('idvwordlepic.jpg') no-repeat center center fixed;
+  background-size: cover;
+  color: #f5f5f5;
+  text-align: center;
+  min-height: 100vh;
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.mode-toggle-container {
+  position: absolute;
+  top: 24px;
+  right: 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  z-index: 100;
+}
+h1 {
+  color: #ffcc00;
+  font-size: 4rem;
+  margin-bottom: 0.5em;
+  text-shadow: 0 0 8px #ffcc00;
+}
+p {
+  font-size: 1.6rem;
+  color: #ddd;
+  margin-bottom: 1.5em;
+  text-shadow: 0 0 6px #222;
+}
+.autocomplete {
+  position: relative;
+  width: 320px;
+  margin: 0 auto 15px;
+}
+#guessInput {
+  width: 100%;
+  padding: 14px 20px;
+  font-size: 18px;
+  border-radius: 10px;
+  border: none;
+  box-shadow: 0 0 8px rgba(255, 204, 0, 0.8);
+  outline: none;
+  background-color: rgba(59, 59, 91, 0.85);
+  color: white;
+  transition: box-shadow 0.3s ease;
+}
+#guessInput:focus {
+  box-shadow: 0 0 14px #ffcc00;
+}
+.autocomplete-items {
+  position: absolute;
+  background-color: rgba(40, 40, 61, 0.95);
+  border-radius: 10px;
+  max-height: 250px;
+  overflow-y: auto;
+  width: 100%;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.7);
+  z-index: 99;
+  display: none;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.autocomplete-item {
+  padding: 10px 12px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  transition: background-color 0.2s;
+  font-size: 1.25rem;
+}
+.autocomplete-item:hover {
+  background-color: rgba(255, 204, 0, 0.8);
+  color: black;
+}
+.autocomplete-item img {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center top;
+  box-shadow: 0 0 6px #ffcc00;
+}
+.autocomplete-item span {
+  font-weight: 600;
+}
+button {
+  font-size: 17px;
+  padding: 12px 26px;
+  margin: 0 10px 20px 10px;
+  border-radius: 12px;
+  border: none;
+  background-color: #3b3b5b;
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+  transition: background-color 0.3s ease;
+}
+button:hover {
+  background-color: #505071;
+}
+/* --- Natural Style for Daily Mode Button --- */
+.daily-mode-btn {
+  background-color: #ffcc00;
+  color: #2e2e48;
+  font-weight: 700;
+  border: none;
+  border-radius: 18px;
+  padding: 14px 32px;
+  font-size: 1.2rem;
+  box-shadow: 0 2px 8px rgba(255, 204, 0, 0.25), 0 1.5px 0 #e6b800 inset;
+  transition: background 0.2s, box-shadow 0.2s, transform 0.1s;
+  margin: 0 10px 20px 10px;
+  cursor: pointer;
+  outline: none;
+}
+
+.daily-mode-btn:hover, .daily-mode-btn:focus {
+  background-color: #ffe066;
+  color: #22223b;
+  box-shadow: 0 4px 16px rgba(255, 204, 0, 0.35), 0 2px 0 #e6b800 inset;
+  transform: translateY(-2px) scale(1.03);
+}
+
+.daily-mode-btn:active {
+  background-color: #ffd700;
+  box-shadow: 0 1px 4px rgba(255, 204, 0, 0.18), 0 0.5px 0 #e6b800 inset;
+  transform: translateY(1px) scale(0.98);
+}
+#message {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 1.2em;
+  color: #ffcc00;
+  text-shadow: 0 0 6px #333;
+  min-height: 24px;
+}
+table {
+  width: 95%;
+  max-width: 900px;
+  border-collapse: separate;
+  border-spacing: 0 12px;
+  margin-bottom: 50px;
+}
+thead tr th {
+  background-color: #2e2e48;
+  color: #ffcc00;
+  padding: 14px 20px;
+  font-size: 18px;
+  border-radius: 12px 12px 0 0;
+  text-align: left;
+  box-shadow: 0 0 12px rgba(255, 204, 0, 0.4);
+}
+
+tbody tr {
+  background: rgba(40, 40, 61, 0.85);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+  border-radius: 14px;
+  transition: background-color 0.3s ease;
+}
+tbody tr:hover {
+  background-color: rgba(59, 59, 91, 0.85);
+}
+
+/* --- FULL COLOR FILL FOR CELLS --- */
+tbody td {
+  padding: 0;              /* Remove extra padding, handled by flip content */
+  min-width: 90px;         /* Wider cells */
+  min-height: 160px;        /* Taller cells */
+  font-size: 22px;         /* Larger text */
+  vertical-align: middle;
+}
+
+/* Fill the entire cell with color for correct/near/wrong */
+tbody td.correct {
+  background-color: #4caf50 !important;
+  color: white !important;
+  font-weight: 700;
+  border: 2px solid #388e3c;
+}
+tbody td.near {
+  background-color: #ffeb3b !important;
+  color: #222 !important;
+  font-weight: 600;
+  border: 2px solid #bfa900;
+}
+tbody td.wrong {
+  background-color: #3a3a4d !important;
+  color: #aaa !important;
+  font-weight: 500;
+  border: 2px solid #22223b;
+}
+
+/* If you want rounded corners for the whole row, do it on the tr */
+tbody tr {
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+/* --- END FULL COLOR FILL --- */
+
+.avatar-cell {
+  width: 50px;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.avatar-cell img {
+  width: 80px;
+  height: 100px;
+  object-fit: cover;
+  margin: auto;
+  display: block;
+}
+/* Remove old switch styles and add new button + sign styles */
+.daily-mode-btn {
+  background-color: #ffcc00;
+  color: #2e2e48;
+  font-weight: 700;
+  border: none;
+  border-radius: 18px;
+  padding: 14px 32px;
+  font-size: 1.2rem;
+  box-shadow: 0 2px 8px rgba(255, 204, 0, 0.25), 0 1.5px 0 #e6b800 inset;
+  transition: background 0.2s, box-shadow 0.2s, transform 0.1s;
+  margin: 0 10px 20px 10px;
+  cursor: pointer;
+  outline: none;
+}
+.daily-mode-btn.active, .daily-mode-btn:active {
+  background-color: #ffe066;
+  color: #22223b;
+  box-shadow: 0 4px 16px rgba(255, 204, 0, 0.35), 0 2px 0 #e6b800 inset;
+  transform: translateY(-2px) scale(1.03);
+}
+.daily-mode-sign {
+  display: block;
+  background: #2e2e48;
+  color: #ffcc00;
+  font-weight: 600;
+  border-radius: 12px;
+  padding: 6px 18px;
+  margin: 0 auto 14px auto;
+  font-size: 1.05em;
+  box-shadow: 0 2px 8px rgba(255,204,0,0.13);
+  letter-spacing: 0.01em;
+  max-width: 320px;
+  position: relative;
+  top: 0;
+}
+#gameContainer {
+  max-width: 800px;
+  width: 100%;
+  background-color: rgba(40, 40, 61, 0.85);
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+}
+#retryButton {
+  display: none; /* Hidden until game ends */
+}
+.collapsible {
+  background-color: #2e2e48;
+  color: #ffcc00;
+  cursor: pointer;
+  padding: 12px 20px;
+  width: 100%;
+  max-width: 800px;
+  border: none;
+  text-align: center;
+  outline: none;
+  font-size: 16px;
+  border-radius: 8px;
+  margin: 30px auto 0;
+}
+.active, .collapsible:hover {
+  background-color: #404060;
+}
+.content {
+  padding: 0 20px;
+  max-width: 800px;
+  margin: 0 auto;
+  display: none;
+  overflow: hidden;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: #ddd;
+  border-radius: 0 0 12px 12px;
+  line-height: 1.6;
+  font-size: 14px;
+  text-align: left;
+}
+.content ul {
+  list-style-type: disc;
+  padding-left: 20px;
+  margin: 10px 0;
+}
+.content li {
+  margin-bottom: 8px;
+}
+.autocomplete-highlight {
+  background-color: #ffcc00 !important;
+  color: black !important;
+}
+.flip-cell {
+  perspective: 1000px;
+}
+.flip-inner {
+  position: relative;
+  width: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.6s;
+}
+.flip-cell.flipped .flip-inner {
+  transform: rotateY(180deg);
+}
+.flip-front, .flip-back {
+  position: absolute;
+  backface-visibility: hidden;
+  width: 100%;
+  height: 100%;
+  padding: 12px 16px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.flip-front {
+  background-color: #444;
+  color: white;
+  transform: rotateY(0deg);
+}
+.flip-back {
+  transform: rotateY(180deg);
+}
