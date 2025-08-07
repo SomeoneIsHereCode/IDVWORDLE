@@ -44,7 +44,7 @@ const characters = [
   { name: "Puppeteer", role: "Survivor", gender: "Male", season: 30, difficulty: 1, skins: 1, avatar: "SurvivorIconAvatars/NavPuppeteer.jpeg" },
   { name: "Fire Investigator", role: "Survivor", gender: "Male", season: 31, difficulty: 1.5, skins: 1, avatar: "SurvivorIconAvatars/NavFireInvestigator.jpeg" },
   { name: "\"Faro Lady\"", role: "Survivor", gender: "Female", season: 32, difficulty: 1.5, skins: 1, avatar: "SurvivorIconAvatars/NavFaroLady.jpeg" },
-  { name: "\"Knight\"", role: "Survivor", gender: "Male", season: 34, difficulty: 1.5, skins: 1, avatar: "SurvivorIconAvatars/NavKnight.jpeg" },
+  { name: "\"Knight\"", role: "Survivor", gender: "Male", season: 34, difficulty: 1.5, skins: 2, avatar: "SurvivorIconAvatars/NavKnight.jpeg" },
   { name: "Meteorologist", role: "Survivor", gender: "Female", season: 35, difficulty: 3, skins: 2, avatar: "SurvivorIconAvatars/NavMeteorologist.jpeg" },
   { name: "Archer", role: "Survivor", gender: "Female", season: 36, difficulty: 2.5, skins: 1, avatar: "SurvivorIconAvatars/NavArcher.jpeg" },
   { name: "\"Escapologist\"", role: "Survivor", gender: "Male", season: 37, difficulty: 2, skins: 1, avatar: "SurvivorIconAvatars/NavEscapologist.jpeg" },
